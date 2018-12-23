@@ -1,9 +1,9 @@
 {
   "extends": "./.config/tsconfig.base",
   "compilerOptions": {
-    "module": "esnext",
+    "module": "es2015",
     "moduleResolution": "node",
-    "target": "es6",
+    "target": "es5",
     "types": [],
     "lib": ["esnext", "dom"]
   },

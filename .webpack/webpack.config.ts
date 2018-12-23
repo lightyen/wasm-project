@@ -31,18 +31,34 @@ const conf: Configuration = {
     module: {
         rules: [
             {
-                test: /\.ts$/,
-                loader: "awesome-typescript-loader",
-                options: {
-                    configFileName: "tsconfig.json",
-                    silent: true,
-                },
+                test: /\.(ts|js)x?$/,
+                use: [
+                    // {
+                    //     loader: "babel-loader",
+                    // },
+                    {
+                        loader: "awesome-typescript-loader",
+                        options: {
+                            configFileName: "tsconfig.json",
+                            silent: true,
+                            // useBabel: true,
+                            // useCache: false,
+                            // babelCore: "@babel/core",
+                            // babelOptions: {
+                            //     babelrc: false,
+                            //     presets: [["@babel/preset-env", { modules: false }], "@babel/preset-typescript"],
+                            //     plugins: ["@babel/proposal-class-properties", "@babel/proposal-object-rest-spread"],
+                            // },
+                        },
+                    },
+                ],
+
                 exclude: /node_modules/,
             },
         ],
     },
     resolve: {
-        extensions: [".ts"],
+        extensions: [".ts", ".tsx", ".js", ".json"],
         plugins: [
             new TsConfigPathsPlugin({
                 configFile: "tsconfig.json",
